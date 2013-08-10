@@ -2,6 +2,8 @@ require 'spec_helper'
 
 describe "Paginas Estaticas" do
   
+  let(:titulo_base) { "Tamos - Agenda social" }
+  
   describe "Pagina de Inicio" do
     it "debe contener 'Inicio'" do
       visit '/paginas_estaticas/inicio'
@@ -10,7 +12,7 @@ describe "Paginas Estaticas" do
     
     it "debe tener el titulo 'Inicio'" do
       visit '/paginas_estaticas/inicio'
-      page.should have_selector('title', :text => "Tamos | Inicio")
+      page.should have_selector('title', :text => "#{titulo_base} | Inicio")
     end
   end
   
@@ -22,7 +24,7 @@ describe "Paginas Estaticas" do
     
     it "debe tener el titulo 'Ayuda'" do
       visit '/paginas_estaticas/ayuda'
-      page.should have_selector('title', :text => "Tamos | Ayuda")
+      page.should have_selector('title', :text => "#{titulo_base} | Ayuda")
     end
   end
   
@@ -34,7 +36,7 @@ describe "Paginas Estaticas" do
     
     it "debe tener el titulo 'Acerca'" do
       visit '/paginas_estaticas/acerca'
-      page.should have_selector('title', :text => "Tamos | Acerca")
+      page.should have_selector('title', :text => "#{titulo_base} | Acerca")
     end
   end
   
@@ -46,7 +48,7 @@ describe "Paginas Estaticas" do
     
     it "debe tener el titulo 'Contacto'" do
       visit '/paginas_estaticas/contacto'
-      page.should have_selector('title', :text => "Tamos | Contacto")
+      page.should have_selector('title', :text => "#{titulo_base} | Contacto")
     end
   end
 end
