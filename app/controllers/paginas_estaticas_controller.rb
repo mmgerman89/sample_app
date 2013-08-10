@@ -4,4 +4,10 @@ class PaginasEstaticasController < ApplicationController
 
   def ayuda
   end
+  
+  def acerca
+  end
+  
+  def contacto
+  end
 end
