@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe "Paginas Estaticas" do
   
-  let(:titulo_base) { "Tamos - Agenda social" }
+  let(:titulo_base) { "Tamos" }
   
   describe "Pagina de Inicio" do
     it "debe contener 'Inicio'" do
