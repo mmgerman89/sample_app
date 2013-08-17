@@ -1,11 +1,13 @@
 SampleApp::Application.routes.draw do
+  get "usuarios/new"
+
   root to: 'paginas_estaticas#inicio'
 
   match '/ayuda', to: 'paginas_estaticas#ayuda'
-  
   match '/acerca', to: 'paginas_estaticas#acerca'
-  
   match '/contacto', to: 'paginas_estaticas#contacto'
+  
+  match '/registro', to: 'usuarios#new'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
