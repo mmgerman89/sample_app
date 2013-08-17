@@ -2,19 +2,24 @@
 <html>
 <head>
   <title><%= titulo_completo(yield(:title)) %></title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= stylesheet_link_tag    "application", media: "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+  <%= render 'layouts/shin' %>
 </head>
 <body>
+	<%= render 'layouts/header' %>
+	<div class="container">
+		<%= yield %>
+		<%= render 'layouts/footer' %>
+	</div>
+	<!--
 	<ul style="list-style-type: none; text-align: center">
 		<li style="display: inline; text-align: center; margin: 0 10px 0 0"><a href="/paginas_estaticas/inicio">Inicio</a></li>
 		<li style="display: inline; text-align: center; margin: 0 10px 0 0"><a href="/paginas_estaticas/acerca">Acerca</a></li>
 		<li style="display: inline; text-align: center; margin: 0 10px 0 0"><a href="/paginas_estaticas/ayuda">Ayuda</a></li>
 		<li style="display: inline; text-align: center; margin: 0 10px 0 0"><a href="/paginas_estaticas/contacto">Contacto</a></li>
 	</ul>
-
-<%= yield %>
-
+	-->
 </body>
 </html>
