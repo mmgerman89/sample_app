@@ -1,54 +1,39 @@
 require 'spec_helper'
 
 describe "Paginas Estaticas" do
-  
   let(:titulo_base) { "Tamos" }
+  subject { page }
   
-  describe "Pagina de Inicio" do
-    it "debe contener 'Inicio'" do
-      visit root_path
-      page.should have_selector('h1', :text => 'Bienvenido')
-    end
+  describe "pagina de inicio" do
+    before { visit root_path }
     
-    it "debe tener el titulo 'Inicio'" do
-      visit root_path
-      page.should have_selector('title', :text => "#{titulo_base} | Inicio")
-    end
+    it { should have_selector 'h1', text: 'Bienvenido' }
+    it { should have_selector 'title', text: titulo_completo('') }
+    it { should_not have_selector 'title', text: '| Inicio' }
+    
   end
   
-  describe "Pagina de Ayuda" do
-    it "debe contener 'Ayuda'" do
-      visit ayuda_path
-      page.should have_selector('h1', :text => 'Ayuda')
-    end
+  describe "pagina de ayuda" do
+    before { visit ayuda_path }
     
-    it "debe tener el titulo 'Ayuda'" do
-      visit ayuda_path
-      page.should have_selector('title', :text => "#{titulo_base} | Ayuda")
-    end
+    it { should have_selector 'h1', text: 'Ayuda' }
+    it { should have_selector 'title', text: titulo_completo('Ayuda') }
+
   end
   
-  describe "Pagina Acerca de" do
-    it "debe contener 'Acerca de nosotros'" do
-      visit acerca_path
-      page.should have_selector('h1', :text => 'Acerca de nosotros')
-    end
+  describe "pagina acerca de" do
+    before { visit acerca_path }
     
-    it "debe tener el titulo 'Acerca'" do
-      visit acerca_path
-      page.should have_selector('title', :text => "#{titulo_base} | Acerca")
-    end
+    it { should have_selector 'h1', text: 'Acerca de Tamos' }
+    it { should have_selector 'title', text: titulo_completo('Acerca') }
+
   end
   
-  describe "Pagina de Contacto" do
-    it "debe contener 'Contacto'" do
-      visit contacto_path
-      page.should have_selector('h1', :text => 'Contacto')
-    end
+  describe "pagina de contacto" do
+    before { visit contacto_path }
     
-    it "debe tener el titulo 'Contacto'" do
-      visit contacto_path
-      page.should have_selector('title', :text => "#{titulo_base} | Contacto")
-    end
+    it { should have_selector 'h1', text: 'Contacto' }
+    it { should have_selector 'title', text: titulo_completo('Contacto') }
+    
   end
 end
