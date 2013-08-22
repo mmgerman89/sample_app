@@ -10,8 +10,13 @@
 #
 
 class Usuario < ActiveRecord::Base
+  EXP_EMAIL_VALIDO = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  
   attr_accessible :email, :nombre
   
   validates :nombre, presence: true, length: { maximum: 50 }
-  validates :email, presence: true
+  validates :email, presence: true, format: { with: EXP_EMAIL_VALIDO },
+                    uniqueness: { case_sensitive: false }
+ 
+  before_save { |usuario| usuario.email = email.downcase }
 end
