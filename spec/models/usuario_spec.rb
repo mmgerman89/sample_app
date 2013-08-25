@@ -13,7 +13,7 @@ require 'spec_helper'
 
 describe Usuario do
  before do
-  @usuario = Usuario.new(nombre: "Ger", email: "german@martinez.com",
+  @usuario = Usuario.new(nombre: "German", email: "german@martinez.com",
                         password: "asdasd", password_confirmation: "asdasd")
  end
  
